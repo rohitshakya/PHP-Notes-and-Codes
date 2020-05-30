@@ -1,0 +1,15 @@
+
+http://order.lockernerd.co.uk/activate.php?user=lnw_25895651&email=rohit.rkshakya@gmail.com&hash=c768763c9bfb574619a7c6fb966325dc&token=127918943195455
+
+
+Cpanel URL: http://cpanel.lockernerd.co.uk
+Username:   lnw_25895651
+Password:   
+
+FTP Username:  lnw_25895651
+FTP Password:  250m9qt8
+FTP HostName:  ftp.lockernerd.co.uk
+
+MySQL Host Name: sql306.lockernerd.co.uk
+MySQL Password:  250m9qt8
+MySQL UserName:  lnw_25895651
