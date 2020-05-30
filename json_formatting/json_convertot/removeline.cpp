@@ -13,26 +13,22 @@ int main()
 	fstream f;
 	string filename;
 	char ch;
-	filename="city3.txt";
+	filename="city2.json";
 	f.open(filename.c_str());
-	vector<string> v;
 	ofstream myfile;
-	myfile.open ("city4.txt");
+	myfile.open ("city21.json");
 	while(f>>ch)
 	{
-		if(ch=='{') 
+		if(ch=='\n') 
 		{
-			char m=')';
-			myfile <<m;
 			continue;
 		}
 	
 		myfile <<ch;
 	}
-
-  
   myfile.close();
 	cout<<endl;
+	//remove "" from the output by replace all command
         
 }
 

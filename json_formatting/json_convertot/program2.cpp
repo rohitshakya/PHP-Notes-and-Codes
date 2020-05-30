@@ -13,22 +13,19 @@ int main()
 	fstream f;
 	string filename;
 	char ch;
-	filename="city20.txt";
+	filename="india.txt";
 	f.open(filename.c_str());
+	vector<string> v;
 	ofstream myfile;
-	myfile.open ("city21.txt");
-	int count=0;
+	myfile.open ("india2.json");
 	while(f>>ch)
 	{
-		if(ch==':') 
-		{	
-		count++;
+		if(ch==',') 
+		{
+			char m='"';
+			myfile <<m;
 		}
-		if(ch==':'&&count%2==0) 
-		{	
-			myfile <<",";
-			continue;
-		}
+	
 		myfile <<ch;
 	}
 

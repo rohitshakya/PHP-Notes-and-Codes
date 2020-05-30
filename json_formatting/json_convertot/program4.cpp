@@ -11,25 +11,23 @@ using namespace std;
 int main()
 {
 	fstream f;
-	string word,filename;
+	string filename;
 	char ch;
-	filename="city5.txt";
+	filename="city31.json";
 	f.open(filename.c_str());
 	vector<string> v;
 	ofstream myfile;
-	myfile.open ("city7.txt");
-	int count=0;
+	myfile.open ("city41.json");
 	while(f>>ch)
 	{
-		if(ch==',') 
-		{	
-		count++;
-		}
-		if(count%2==0)
-		{
-		myfile <<ch;	
-		} 
 		
+		if(ch==',') 
+		{
+			char m='\n';
+			myfile <<m;
+		}
+	
+		myfile <<ch;
 	}
 
   

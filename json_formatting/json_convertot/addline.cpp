@@ -13,22 +13,21 @@ int main()
 	fstream f;
 	string filename;
 	char ch;
-	filename="city2.txt";
+	filename="city21.json";
 	f.open(filename.c_str());
 	vector<string> v;
 	ofstream myfile;
-	myfile.open ("city3.txt");
-  	
-	int count=0;
+	myfile.open ("city31.json");
 	while(f>>ch)
 	{
-		if(ch=='{') count++;
-		if(count%2==0)
+		myfile <<ch;
+		if(ch==',') 
 		{
-			continue;
+			char m='"';
+			myfile <<m;
 		}
 	
-		myfile <<ch;
+		
 	}
 
   
