@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Comment page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" >
+  <meta name="author" content="Rohit Shakya">
+  <meta name="keywords" content="Commment, Map, User, Authentication, Weather, Report, News ">
+  <meta name="title" content="Commment Posting Site">
+  <meta name="description" content="Welcome to our comment posting site. Enjoy!!">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+<body style="background: white">
+
+
+  <section>
+    <div id ="floating-panel"></div> 
+
+    <div id="googleMap" style="width:100%;height:800px;"></div>
+        
+             <script>
+                  var markers =[['New delhi',28.6139,77.2090,5],
+                                    ['Hariyana',29.0588,76.0856,4],
+                                    ['Punjab',31.1471,75.3412,3],
+                                    ['Uttar pradesh',26.8467,80.9462,2],
+                                    ['Uttarakhand',30.0668,79.0193,1]];
+                 function initMap(){
+                 //   var centerLatlng = {lat:28.6139 , lng: 77.2090};
+                   var mapr={lat:28.7041 , lng:77.1025};
+                     var map= new google.maps.Map(document.getElementById('googleMap'),
+                     {
+                        center : mapr,
+                         zoom : 6,
+                     
+                     });
+                     setMarkers(map);
+                    } 
+                     function setMarkers(map){        
+                      for(var i=0;i<markers.length;i++)
+                        {
+                            var ar=markers[i];
+                            var marker=new google.maps.Marker({   
+                              position:{lat:ar[1] , lng:ar[2]},
+                               map: map,
+                               title:"user:"+ar[3],
+                               animation: google.maps.Animation.DROP
+                             });
+
+                               var infowindow= new google.maps.InfoWindow();
+                               var geocoder=new google.maps.geocoder();
+                               (function (marker,ar){
+                                google.maps.event.addListener(marker,'click',function(e){
+                               // document.getElementById('submit').addEventListener('click', function(){
+                                 geocodeAddress(geocoder,map);
+                             
+                              infowindow.setContent( ar[0]);
+                              infowindow.open(map,marker);
+                          
+                              });
+                            })(marker,ar);
+                          }      
+                          
+                        if(navigator.geological){
+                        navigator.geolocation.getCurrentPosition(function(position){
+                            var pos = {
+                                lat: position.coords.latitude,
+                                lng: position.coords.longitude
+                            };
+                            infowindow.setPosition(pos);
+                            infowindow.setContent('location found');
+                            infowindow.open(pos);
+                            map.setCentre(pos);
+                        },function(){
+                            handleLocationError(true,infowindow,map.getCentre());
+                        });
+                    }else{
+                        handleLocationError(false,infowindow,map.getCentre());
+                    }
+
+                    function handleLocationError(browserHasGeolocation,InfoWindow,pos){
+                        infowindow.setPosition(pos);
+                        infowindow.setCentre(browserHasGeolocation?'Error:the geolocation failed.':
+                        'Error: browserHasGeolocatio');
+                        infowindow.open(map)
+                    }; 
+                }     
+                    
+                    </script>
+                 
+                 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrhOz4CIg7OgYi7hxGT2AbBaV2mh-uh-M&callback=initMap"></script>
+    
+</section>
+</body>
+</html>
