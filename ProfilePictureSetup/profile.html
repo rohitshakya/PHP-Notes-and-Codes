@@ -1,0 +1,129 @@
+<!--
+ * Author : Rohit Shakya
+ * Date   : June-2020
+ * Editor : Sublime text
+ * Local server: Xampp
+ * Title : Blog posting site featuring with Weather and News report  
+ * Version: v5.4
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>UserPage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" >
+  <meta name="author" content="Rohit Shakya">
+  <meta name="keywords" content="Commment, Map, User, Authentication, Weather, Report, News ">
+  <meta name="title" content="Commment Posting Site">
+  <meta name="description" content="Welcome to our comment posting site. Enjoy!!">
+  <link rel="stylesheet" href="css/mycss.css">
+  <link rel="stylesheet" type="text/css" href="profileCss.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="profileJs.js"></script>
+  </head><body style="background: white">
+<div class="alert alert-success">
+  <strong>Hi there!</strong> I've noticed this plugin got some attention and I've decided to write this same plugin as a React Component. If you are interested,  <a href="https://salvagni.dev/react-profile-picture/" target="_blank" rel="nofollow">you can see it in action here.</a>
+</div>
+<div class="flex">
+  <div class="left">
+<div class="profile">
+        <div class="photo">
+            <input type="file" accept="image/*">
+            <div class="photo__helper">
+                <div class="photo__frame photo__frame--circle">
+                    <canvas class="photo__canvas"></canvas>
+                    <div class="message is-empty">
+                        <p class="message--desktop">Drop your photo here or browse your computer.</p>
+                        <p class="message--mobile">Tap here to select your picture.</p>
+                    </div>
+                    <div class="message is-loading">
+                        <i class="fa fa-2x fa-spin fa-spinner"></i>
+                    </div>
+                    <div class="message is-dragover">
+                        <i class="fa fa-2x fa-cloud-upload"></i>
+                        <p>Drop your photo</p>
+                    </div>
+                    <div class="message is-wrong-file-type">
+                        <p>Only images allowed.</p>
+                        <p class="message--desktop">Drop your photo here or browse your computer.</p>
+                        <p class="message--mobile">Tap here to select your picture.</p>
+                    </div>
+                    <div class="message is-wrong-image-size">
+                        <p>Your photo must be larger than 350px.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo__options hide">
+                <div class="photo__zoom">
+                    <input type="range" class="zoom-handler">
+                </div><a href="javascript:;" class="remove"><i class="fa fa-trash"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <button type="button" id="previewBtn">Preview</button>
+    <button type="button" id="uploadBtn">Upload Example</button>
+<code id="uploadExample" style="display: none">
+  <h1>Cropping on backend</h1>
+  <pre>
+$('#uploadBtn').on('click', function() {
+    var formData,
+        data = p.getData();
+
+    formData = new FormData();
+    formData.append('file', data.file);
+    // Crop size ( Final image size )
+    formData.append('cropHeight', data.cropHeight);
+    formData.append('cropWidth', data.cropWidth);
+    // Image X and Y position
+    formData.append('x', data.x);
+    formData.append('y', data.y);
+    // New image size (the size needed to position the image)
+    formData.append('newWidth', data.width);
+    formData.append('newHeight', data.height);
+    // Zoom/Scale; 0.1 = 10%
+    formData.append('zoom', data.zoom);
+    // Original image size (if needed)
+    formData.append('originalWidth', data.originalWidth);
+    formData.append('originalHeight', data.originalHeight);
+
+    $.ajax({
+        url: "fakeserve/upload",
+        data: formData,
+        processData: false,
+        type: 'POST',
+        contentType: 'multipart/form-data', 
+        mimeType: 'multipart/form-data', 
+        success: function (data) {
+            console.log(data);
+        }
+    });
+    
+});
+</pre>
+<h1>Sending already croppend (DataURL) to backend (Check security issues)</h1>
+  <p>Backend should save the image file with the DataURL content</p>
+  <pre>
+$('#uploadBtn').on('click', function() {
+    var image = p.getAsDataURL();
+
+    $.post("fakeserver/upload", { image: image });
+    
+});
+</pre>  
+  
+  
+</code>
+    <hr>
+    <img src="" alt="" class="preview">
+    <img src="" alt="" class="preview preview--rounded">
+    </div>
+  <div class="right">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdZGghrM23CCO4vsGEdXYiplYD4XMW1BLU6Ljc-UzRl7zkNSA/viewform?embedded=true" width="640" height="478" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
+  </div>
+</div>
+</body></html>
