@@ -1,0 +1,3 @@
+php_flag output_buffering on
+ob_start();
+//methods to remove warning header already sent
