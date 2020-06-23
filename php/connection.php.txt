@@ -1,0 +1,4 @@
+$servername = "sql213.epizy.com";
+$dbusername = "epiz_26075474";
+$password = "tPBoo0OtG5";
+$database="epiz_26075474_mydb";
