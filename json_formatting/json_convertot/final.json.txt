@@ -1,9 +1,0 @@
-{"hesar-eSefid":2960
-,"Taglag":3530
-,"Ariqah":7264
-,"Behjatabad":9874
-,"ShahriarKandeh":11754
-,"Assurahassaghirah":14177
-,"azadshahr":18007
-,"Digaleh":18557
-,"Protaras":23814}
