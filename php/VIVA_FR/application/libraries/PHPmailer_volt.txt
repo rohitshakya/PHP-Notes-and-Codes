@@ -1,0 +1,25 @@
+============= Installing PHP Mailer =============
+
+1. Download the PHPMailer library from [ application\libraries ] folder
+
+Folder name : phpmailer
+File Name : Send_mail.php
+
+2. SMTP Mail setting folder [ application\config ]
+
+File Name : database.php
+
+Constant varibales for smtp setting
+
+SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD, MAIL_SENDER
+
+Using variable MAIL_SENDER can be send mail by SMTP / Default server mail 
+
+phpmailer  -  smtp mail can be send.
+mailer 	-  sever default mail can be send.
+
+3. autoload library file for php mailer in admin portal [master\application\libraries]
+
+Filename : Send_mail.php
+
+

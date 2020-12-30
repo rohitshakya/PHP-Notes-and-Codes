@@ -1,0 +1,122 @@
+.usersidebar{
+    border-right: 1px solid #cecece;
+    padding: 10px;
+        background: -webkit-linear-gradient(left, #173377, #37387bab); 
+        border-radius: 5px;
+}
+.usersidebar .usermenu{list-style:none;}
+
+.usersidebar .usermenu li{
+      margin-bottom: 10px;
+    background: #ffffffd4;
+        border-radius: 5px;
+    
+}
+.usersidebar .usermenu li a{
+    padding: 10px;
+    display: block;
+    color: #717171;
+    font-size: 16px;
+    border-bottom: 1px dotted #d8d8d8;
+    transition: all .7s ease;
+}
+.usersidebar .usermenu li a em{
+    color: #07bdb5;
+}
+.usersidebar .usermenu li a:hover{
+    color: #07bdb5;
+    border-color: #07bdb5;
+    padding-left: 15px;
+}
+.usersidebar .usermenu li:nth-child(2) a em{
+    color: #e66e07;
+}
+.usersidebar .usermenu li:nth-child(2) a:hover{
+    color: #e66e07;
+    border-color: #e66e07;
+}
+.usersidebar .usermenu li:nth-child(3) a em{
+    color: #5ec500;
+}
+.usersidebar .usermenu li:nth-child(3) a:hover{
+    color: #5ec500;
+    border-color: #5ec500;
+}
+.usersidebar .usermenu li:nth-child(4) a em{
+    color: #3d4bf1;
+}
+.usersidebar .usermenu li:nth-child(4) a:hover{
+    color: #3d4bf1;
+    border-color: #3d4bf1;
+}
+.usersidebar .usermenu li:nth-child(5) a em{
+    color: #ff00f7;
+}
+.usersidebar .usermenu li:nth-child(5) a:hover{
+    color: #ff00f7;
+    border-color: #ff00f7;
+}
+
+.cardarea_1{
+    padding: 10px;
+    margin-bottom: 20px;;
+    border-left: 5px solid #07bdb5;
+    border-radius: 5px;
+    min-height: 100px;
+    box-shadow: 3px 3px 10px #ececec;
+}
+
+.cardarea{
+
+    padding: 10px;
+    margin-bottom: 20px;
+    border-left: 5px solid #f75013;
+    border-radius: 5px;
+    min-height: 100px;
+    box-shadow: 3px 3px 10px #ececec;
+    text-align: center;
+    /* height: 80px; */
+    background: -webkit-linear-gradient(left, #173377, #173577de);
+    color: #fff;
+    font-weight: bold;
+}
+
+
+.cardtitle{
+     color: #f9f9f9;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 10px 0;
+    font-weight: bold;
+}
+.cardno{
+      color: #f9f9f9;
+    font-size: 24px;
+    font-weight: bold;
+}
+#updateprofile{
+  border-right: 1px solid #cecece;
+    padding: 20px;
+    background: -webkit-linear-gradient(left, #173377, #37387bab);
+    border-radius: 5px;  
+}
+#updatereport{
+  border-right: 1px solid #cecece;
+    padding: 10px;
+    background: -webkit-linear-gradient(left, #173377, #37387bab);
+    border-radius: 5px;  
+}
+#updatereport th{
+     color: #fff !important;   
+}
+
+#updatereport td{
+     color: #fff !important;   
+}
+#updateprofile label {
+    color: #f9f9f9 !important;
+}
+.cus_btn{
+       background-color: #f75013 !important;
+       border-color: #626b8a !important;
+}
