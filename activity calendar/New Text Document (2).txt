@@ -1,0 +1,12 @@
+   //activity calender starts here
+            $activity_calender = $this->db->query("SELECT EXTRACT(YEAR FROM Date(start_time)) as year,EXTRACT(MONTH FROM Date(start_time)) as month,EXTRACT(DAY FROM Date(start_time)) as day,Date(start_time) as dateofday, COUNT(*) as act_count FROM reports where userid=".$profile->vc_id." GROUP BY Date(start_time)")->getResultArray();
+            $activity_calender_count = $this->db->query("SELECT COUNT(*) as total_act_count FROM reports where userid=".$profile->vc_id."")->getResultArray();
+            
+            
+            if(!empty($activity_calender))
+            {
+              $this->data['activity_calender'] = $activity_calender;
+              $this->data['activity_count'] = $activity_calender_count[0];
+          }
+
+            //activity calender ends here
