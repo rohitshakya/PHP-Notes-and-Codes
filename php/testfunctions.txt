@@ -1,0 +1,97 @@
+ public function testFunctions()
+  {
+    echo view('school/student_sidebar');
+    if (empty($this->request->getGet('cloudtype'))) {
+      echo view('calendar/uploadfiles.php');
+    } else if ($this->request->getGet('cloudtype') == "dropbox") {
+      echo view('calendar/uploadfiles_dropbox.php');
+    } else if ($this->request->getGet('cloudtype') == "onedrive") {
+      echo view('calendar/uploadfiles_onedrive.php');
+    }
+
+    echo view('school/footer');
+  }
+
+  public function testFunctions2()
+  {
+    //echo view('calendar/microsoft_SSO1.php');
+    //echo view('school/timeline/teacher_index_1.php');
+    $host = "https://login.microsoftonline.com/";
+    $tenant = "common";
+    $client_id = "56f5349c-a6cf-4342-96aa-8d1295f323c4";
+    $client_secret = "5eSsVc_tfy..Jnr__T7.h.ComtOdR0y-6j";
+    $callback = "http://localhost/VIVA_VOLT_DEV/portal_volt/test3";
+    $scopes = ["User.Read"];
+    $state = "state";
+
+
+
+    $parameters = [
+      'client_id' => $client_id,
+      'response_type' => 'code',
+      'redirect_uri' => $callback,
+      'response_mode' => 'query',
+      'scope' => implode(' ', $scopes),
+      'state' => $state
+    ];
+    return $host . $tenant . "/oauth2/v2.0/authorize?" . http_build_query($parameters);
+  }
+
+  public function getToken(string $code, string $state = null)
+  {
+    /* if (!is_null($state)) {
+            if (Session::get("state") != $state) {
+                throw new \Exception("State parameter does not matched.", 1);
+                return false;
+            }
+          }*/
+
+          $host = "https://login.microsoftonline.com/";
+          $tenant = "common";
+          $client_id = "56f5349c-a6cf-4342-96aa-8d1295f323c4";
+          $client_secret = "5eSsVc_tfy..Jnr__T7.h.ComtOdR0y-6j";
+          $callback = "http://localhost/VIVA_VOLT_DEV/portal_volt/test3";
+          $scopes = ["User.Read"];
+          $state = "state";
+          $url = $host . $tenant . "/oauth2/v2.0/token";
+          $this->load->library('guzzle');
+
+    # guzzle client define
+          $client     = new GuzzleHttp\Client();
+          $tokens = $this->guzzle->post($url, [
+            'form_params' => [
+              'client_id' => $this->client_id,
+              'client_secret' => $this->client_secret,
+              'redirect_uri' => $this->redirect_uri,
+              'scope' => implode(' ', $this->scopes),
+              'grant_type' => 'authorization_code',
+              'code' => $code
+            ],
+          ])->getBody()->getContents();
+          return json_decode($tokens);
+        }
+        public function testFunctions3()
+        {
+
+    require "vendor/autoload.php";/*
+    $auth = new Auth(Session::get("tenant_id"), Session::get("client_id"), Session::get("client_secret"), Session::get("redirect_uri"), Session::get("scopes"));*/
+    $tokens = $this->getToken($_REQUEST['code'], $_REQUEST['state']);
+    $accessToken = $tokens->access_token;
+    $auth->setAccessToken($accessToken);
+    /*print_r($tokens->access_token);
+$user = new User;
+echo "Name: "  . $user->data->getDisplayName() . "
+";
+echo "Email: " . $user->data->getUserPrincipalName() . "
+";
+echo "<pre>";
+$myJSON = json_encode($user->data);
+/*
+*/
+$claims = explode('.', $accessToken)[1];
+$claims = json_decode(base64_decode($claims));
+echo '<h3>Parsed ID Token</h3>';
+echo '<pre>';
+print_r($claims);
+echo "redirect successfulluy";
+}
