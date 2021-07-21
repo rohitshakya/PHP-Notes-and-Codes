@@ -1,0 +1,7 @@
+install git 
+install xampp
+gen git key (ssh-keygen)
+copy public key
+upload public to aws code commit, generate access key, copy acess key and paste it into config file
+ ssh git-codecommit.us-east-2.amazonaws.com
+ git clone --branch develop ssh://git-codecommit.ap-south-1.amazonaws.com/v1/repos/VIVA_VOLT_DEV
