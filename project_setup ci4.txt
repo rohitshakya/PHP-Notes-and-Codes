@@ -6,7 +6,7 @@ go to the project folder and run the command "php spark serve"
 
 app setting db name n all
 
-put the index.php and htdocs file in the outside folder
+put the index.php and htdocs file of the public folder outside the folder folder
 
 update the following in index.php 
 
